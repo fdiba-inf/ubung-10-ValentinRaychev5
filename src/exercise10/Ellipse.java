@@ -7,13 +7,13 @@ public class Ellipse extends Figure {
         super(new Point(0, 0), 1, 1);
     }
 
-    public Ellipse(Point startPoint, double side2, double side1) {
+    public Ellipse(Point startPoint, double side1, double side2) {
 
-        super(new Point(startPoint), side2, side1);
+        super(new Point(startPoint), side1, side2);
     }
 
     public Ellipse(Ellipse otherEllipse) {
-        super(otherEllipse.startPoint, otherEllipse.side2, otherEllipse.side1);
+        super(otherEllipse.startPoint, otherEllipse.side1, otherEllipse.side2);
     }
 
     @Override
@@ -45,9 +45,9 @@ public class Ellipse extends Figure {
 
     public boolean containsClick(Point click) {
 
-        double formula = (Math.pow((click.getX() - startPoint.getX()), 2)) / (side2*side2)
+        double formula = (Math.pow((click.getX() - startPoint.getX()), 2)) / (side1*side1)
         +
-        (Math.pow((click.getY() - startPoint.getY()), 2)) / (side1*side1);
+        (Math.pow((click.getY() - startPoint.getY()), 2)) / (side2*side2);
 
         if (formula <= 1) {
           return true;
